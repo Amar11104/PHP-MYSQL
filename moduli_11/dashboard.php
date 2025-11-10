@@ -8,15 +8,14 @@
         table,td,th{
             border:1px solid black;
             border-collapse: collapse;
-        }
-        td,th{
-            padding: 10px 20px;
-        }
-        </style>
-
+            }
+            td,th{
+                padding: 10px 20px;
+            }
+    </style>
 </head>
 <body>
-  <?php
+    <?php
         include_once('config.php');
         $sql = "SELECT * FROM users";
         $getUsers = $conn->prepare($sql);
@@ -24,7 +23,6 @@
         $users=$getUsers->fetchAll();
     ?>
     <br> <br>
-
 
     <table>
         <thead>
@@ -42,7 +40,7 @@
         <td> <?= $user['name'] ?> </td>
         <td> <?= $user['surname'] ?> </td>
         <td> <?= $user['email'] ?></td>
-        <td><?= "<a href='delete.php?id=.$user[id]'> Delete </a>."?></td>
+        <td><?= "<a href='delete.php?id=$user[id]'> Delete </a> " ?></td> <td><?= "<a href='delete.php?id=$user[id]'> Delete </a> | <a href='edit.php?id=$user[id]'> Update </a> " ?></td>
     </tr>
     <?php
             }
